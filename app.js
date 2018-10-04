@@ -8,14 +8,14 @@ const app = express()
 const port = 3000
 const db = mongoose.connection;
 
-mongoose.connect(process.env.LOCAL_MONGO, {
-  useNewUrlParser: true
-})
+// mongoose.connect(process.env.LOCAL_MONGO, {
+//   useNewUrlParser: true
+// })
 
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function () {
-  console.log('mongo connected')
-})
+// db.on('error', console.error.bind(console, 'connection error:'))
+// db.once('open', function () {
+//   console.log('mongo connected')
+// })
 
 app.use(cors())
 app.use(express.urlencoded({
