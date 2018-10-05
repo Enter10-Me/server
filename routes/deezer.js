@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/search', deezerController.search)
-router.get('/top', deezerController.topMusic)
+router.get('/top', deezerController.topArtis)
+router.get('/get-song/:artist', deezerController.getSongsFromArtist)
 
 module.exports = router
