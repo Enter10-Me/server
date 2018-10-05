@@ -19,11 +19,23 @@ router.get('/',(req,res)=>{
     );
 })
 
-// router.get('/',(req,res)=>{
-//     res.send('halo dari jikan')
-// })
-
-
+router.get('/:year/:season',(req,res)=>{
+    request(
+        {
+            url : `https://api.jikan.moe/v3/season/${req.params.year}/${req.params.season}`,
+            json : true,
+        },
+        function (error, response, body) {
+            if(error){
+                res.status(400).json({
+                    message : 'error getting data'
+                })
+            }else{
+                res.json(body)
+            }
+        }  
+    );
+})
 
 module.exports = router;
 
