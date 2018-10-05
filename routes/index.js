@@ -1,12 +1,16 @@
 const router = require('express').Router()
 const routerUser = require('./user')
-// const routerJikan = require('./jikan')
+const routerJikan = require('./jikan')
 // const routerMovieDb = require('./user')
 // const routerRandomAvatar = require('./randomAvatar')
 // const routerLastFm = require('./lastFm')
 
+router.get('/',(req,res)=>{
+    res.send('halo dari index')
+})
+
 router.use('/users', routerUser)
-// router.use('/jikan', routerJikan)
+router.use('/jikan', routerJikan)
 // router.use('/moviedb', routerMovieDb)
 // router.use('/randomAvatar', routerRandomAvatar)
 // router.use('/lastFM', routerLastFm)
