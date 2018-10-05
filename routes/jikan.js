@@ -1,6 +1,28 @@
 const router = require('express').Router()
 const request = require('request');
 
+router.get('/anime',(req,res)=>{
+    res.send('halo dari anime')
+})
+
+router.get('/anime/:id',(req,res)=>{
+    request(
+        {
+            url : `https://api.jikan.moe/v3/anime/${req.params.id}`,
+            json : true,
+        },
+        function (error, response, body) {
+            if(error){
+                res.status(400).json({
+                    message : 'error getting data'
+                })
+            }else{
+                res.status(200).json(body)
+            }
+        }  
+    );
+})
+
 router.get('/',(req,res)=>{
     request(
         {
@@ -36,6 +58,9 @@ router.get('/:year/:season',(req,res)=>{
         }  
     );
 })
+
+
+
 
 module.exports = router;
 
