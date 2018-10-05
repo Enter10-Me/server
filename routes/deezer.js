@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     res.send('ini dari deezer')
 })
 
-router.post('/search', deezerController.search)
+router.get('/search/:artist', deezerController.search)
 router.get('/top', deezerController.topArtis)
 router.get('/get-song/:artist', deezerController.getSongsFromArtist)
 
